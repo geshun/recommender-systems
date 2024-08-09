@@ -1,5 +1,17 @@
 ---
 title: Recommender System
+description: Documenting Ideas and Techniques
+author: 
+  name: Gideon Eshun
+  url: mailto:fiiisnpires@gmail.com
+format: 
+  html:
+    theme: 
+      light: cosmo
+      dark: darkly
+    toc: true
+    html-math-method: katex
+title-block-banner: "#003865"
 ---
 
 ### Collaborative Filtering vs. Content-Based Filtering
@@ -45,7 +57,8 @@ The cold start problem arises when a user or item has insufficient interaction d
 
 One approach to mitigate the cold start problem is to wait for more data, or use content-based filtering, which doesn’t rely heavily on interaction history, especially for cold items.
 
-Implementing SAR Algorithm
+### Implementing SAR Algorithm
+
 In this notebook, we implement the SAR (Smart Adaptive Recommendations) algorithm on simulated data. SAR is an algebraic algorithm, similar to Singular Value Decomposition (SVD) or Cosine Similarity. Most CBF algorithms follow traditional machine learning approaches, where problems are mathematically defined and optimization techniques are used to minimize a cost function.
 
 
