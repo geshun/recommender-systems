@@ -1,0 +1,51 @@
+---
+title: Recommender System
+---
+
+### Collaborative Filtering vs. Content-Based Filtering
+
+Collaborative Filtering (CF) focuses on identifying similar users to make recommendations, while Content-Based Filtering (CBF) is centered on finding items with similar features or profiles.
+
+Collaborative Filtering: If User A is similar to User B (e.g., they have liked the same items in the past or share other similarities), and User A likes a new item, then it’s likely that User B will also like this new item. Therefore, the system recommends the new item to User B. This approach relies on the idea that people who agreed in the past will agree in the future.
+
+Content-Based Filtering: If a user liked an item $t_1$ in the past, and item $t_1$ shares similar features with a new item $t_2$, then the system recommends $t_2$ to the user. Additionally, CBF can be user-centric by fixing the item and considering similarities between user profiles. For example, if User A (a 13-year-old male) likes an item $t$ then another 13-year-old male (User B) might also like $t$.
+
+CF discovers patterns in user preferences or behaviors based on interactions like purchase history, item ratings, and clicks, without relying on specific user or item attributes. In contrast, CBF aligns well with modern machine learning algorithms as it leverages features (both user and item features) to predict preferences.
+
+### Data Requirements for Recommender Systems
+
+Recommender systems typically require three key datasets, distinguishing them from other types of machine learning tasks:
+
+    User Data: Information about users, such as demographics or behavior.
+    Item Data: Information about the items being recommended, such as descriptions, categories, or pricing.
+    Interaction Data: Records of interactions between users and items, such as views, clicks, purchases, watches, and plays. Different types of interactions provide varying levels of insight into user preferences.
+
+Understanding these interactions is crucial for recommender systems. Explicit feedback, like a five-star rating, directly indicates user preferences, although it doesn’t always capture the full picture (e.g., the user might not have watched the entire movie). Implicit feedback, such as completing a movie, suggests engagement but may not reflect user satisfaction. Each feedback type has its pros and cons. Explicit feedback can be more precise but requires active user participation, which can be biased or uncomfortable for some users.
+
+### Additional Data to Enrich Recommendations
+
+    User Features Data: Includes age, location, gender, and role.
+    Item Features Data: Includes price, brand, description, and product type.
+
+### Splitting Data in Recommender Systems
+
+When preparing data for training and testing, the choice of split method is critical:
+
+    Chronological Split: Used when user behavior changes over time, as it accounts for the temporal effects in user-item interactions.
+    Stratified Split: Ensures that the same users or items are present in both training and test sets, which is important when making personalized recommendations. A stratified split can also enforce a minimum number of interactions for users or items to ensure statistically sound evaluations and avoid the cold start problem.
+
+For instance, if the goal is to recommend similar movies (e.g., User A likes Movie M1 and M1 is similar to M2), a stratified split would ensure that User A is present in both the training and test sets, avoiding the cold start issue and ensuring consistent evaluation.
+
+### The Cold Start Problem
+
+The cold start problem arises when a user or item has insufficient interaction data:
+
+    Cold Users: New or infrequent users who haven’t interacted enough with the system. Some platforms address this by asking new users to select their preferences during signup.
+    Cold Items: New or unpopular items that haven’t been interacted with by many users. Increasing visibility for these items, such as featuring new releases on the homepage, can help.
+
+One approach to mitigate the cold start problem is to wait for more data, or use content-based filtering, which doesn’t rely heavily on interaction history, especially for cold items.
+
+Implementing SAR Algorithm
+In this notebook, we implement the SAR (Smart Adaptive Recommendations) algorithm on simulated data. SAR is an algebraic algorithm, similar to Singular Value Decomposition (SVD) or Cosine Similarity. Most CBF algorithms follow traditional machine learning approaches, where problems are mathematically defined and optimization techniques are used to minimize a cost function.
+
+
